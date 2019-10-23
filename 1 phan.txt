@@ -1,0 +1,31 @@
+
+    request(option,
+        (err, res, html) => {
+            if (!err && res.statusCode == 200) {
+                let dom = cheerio.load(html);
+                {
+                    var listPrice = dom('.options-list.color-list')
+                    let onePrice = parseInt(dom('.price').text().split('₫')[0].replace(/\./g, ''))
+    
+                    // Lấy giá theo thứ tự
+                    if(listPrice.text().split('₫').length < 2){
+                        console.log('Giá : '+onePrice)
+                    }else {
+                        var html1 = HTML.parse(listPrice.html());
+    
+                    let onePrice = parseInt(dom('.price').text().split('₫')[0].replace(/\./g, ''))
+                    // console.log(onePrice)
+                    for(let i=0; i< html1.length; i++){
+                        let color = html1[i].children[1].children[0].children[0].content
+                        let priceAdd = parseInt(html1[i].children[0].attrs.price) + parseInt(onePrice)
+    
+                        let str = `${color}: ${new Intl.NumberFormat( { style: 'currency', currency: 'EUR' }).format(priceAdd)}`
+                        console.log(str)
+                    }
+                    }
+                }
+             
+            } else {
+                console.log('ERROR');
+            }
+        })

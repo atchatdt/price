@@ -1,0 +1,280 @@
+const request = require('request');
+const cheerio = require('cheerio');
+const HTML = require('html-parse-stringify')
+
+
+
+// let url = 'https://minhtuanmobile.com/iphone-11-pro-max-2019-64gb-ll-a/'
+
+// let url = 'https://bachlongmobile.com/samsung-galaxy-note-10-plus-chua-kich-6060-chua-active.html';
+
+// BL
+var url = 'https://bachlongmobile.com/iphone-xi-pro-max.html';
+url = 'https://bachlongmobile.com/iphone-11-pro-max-512gb-chinh-hang.html'
+// url = 'https://bachlongmobile.com/samsung-galaxy-note-10-plus-chua-kich-6060-chua-active.html'
+// url = 'https://bachlongmobile.com/iphone-11-pro-256gb-cong-ty.html'
+
+let classPrice = '.options-list.color-list';
+classPrice = '.price';
+
+// EBL
+
+// VP
+// var url = 'https://vinhphatmobile.com/san-pham/iphone-8-plus/'
+// // url = 'https://vinhphatmobile.com/san-pham/samsung-galaxy-note-10/'
+// // url = 'https://vinhphatmobile.com/san-pham/iphone-11-pro-max/'
+// url = 'https://vinhphatmobile.com/san-pham/iphone-xs-max/'
+// var classPrice = 'span.woocommerce-Price-amount.amount';
+// classPrice = '.price'
+
+// EVP
+
+// let url = 'https://hoanghamobile.com/apple-iphone-11-pro-64gb-chinh-hang-vna-p15833.html';
+// let classPrice = '.product-price span';
+
+// var url = 'https://cellphones.com.vn/apple-iphone-xs-max-64-gb-chinh-hang-vn.html';
+// url = 'https://cellphones.com.vn/samsung-galaxy-note-10-plus.html'
+// var classPrice = 'span.opt-name';
+
+// var url = 'https://didongviet.vn/iphone-11-pro-max-64gb-chinh-hang';
+// url = 'https://didongviet.vn/samsung-galaxy-note-10-plus'
+// var classPrice = '.price-wrapper .price'
+
+// var url = 'https://www.hnammobile.com/dien-thoai/apple-iphone-11-pro-max-1-sim-64gb.18045.html';
+// var classPrice = '.numberprice' //'.color.active'   //'.numberprice'
+
+// let url = 'https://didongthongminh.vn/iphone-11-pro-max-64gb-moi';
+
+// Mobile siêu rẻ
+
+// var url = 'https://mobilesieure.vn/'
+
+
+let option = {
+    url,
+    headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'
+    }
+}
+
+
+request(option,
+    (err, res, html) => {
+        if (!err && res.statusCode == 200) {
+
+
+            let dom = cheerio.load(html);
+
+            // Mobile siêu rẻ
+            {
+
+                // var content = dom('#removeChild');
+                // console.log(content.val())
+            }
+            
+            // HNam
+            {
+                {
+                  
+                    // classPrice = '.color.color-wrapper'
+                    
+                    // let lastPrice = ''
+                    // let arr = dom(classPrice).text().split('đ');
+                    // for (let i = 0; i < arr.length; i++) {
+                    //     if (arr[i].length > 1 && arr[i].trim()) {
+                    //         // console.log(arr[i])
+                    //         let price = arr[i].match(/\d/g).join('')
+                    //         let color = arr[i].match(/\D/g).join('').replace(/\./g, '')
+                    //         lastPrice += `${color}: ${price};`
+                    //     }
+                    // }
+                    // console.log('Giá trên:'+lastPrice)
+                    // if(classPrice.trim()){
+                    //     // console.log('ERROR')
+                    //     classPrice = 'li.color' 
+                    //     // console.log(classPrice)
+                    //     let price =  dom(classPrice)
+                    //     // console.log((price))
+                    //     // for(let i=0; i< price.length; i++){
+                    //     //     console.log(i)
+                    //     //     console.log( price[i])
+                    //     // }
+                    //     console.log( price[0].parent.children[0].children[0].attribs['data-title']) //=> lấy màu
+                    //     // console.log(price.text().split('đ'))
+                    // }
+                    
+                    // if(lastPrice.trim().length < 2){
+                    //     classPrice = '.numberprice'
+                    //     let price = dom('.numberprice')
+                    //     console.log(price.text().split('đ')[0])
+                    // }
+
+                    // console.log('END')
+                }
+            }
+            // hếtHNam
+            // Di Động Việt
+            {
+// {
+                // var listPrice = dom('.opt_attr')
+                // let lastPrice = ''
+                // // console.log(listPrice.text().replace(/\s/g,''))
+                // let arr = listPrice.text().replace(/\s/g,'').split('₫')
+                // for(let i=0; i< arr.length; i++){
+                //     if(arr[i].length > 1 && arr[i].trim()){
+                //         let color = arr[i].match(/\D/g).join('').replace(/\./g, '')
+                //         console.log(color)
+                //         let price = arr[i].match(/\d/g).join('')
+                //         let str = `${color}: ${price};`
+                //         lastPrice+= str
+                //     }
+                // }
+                // console.log(lastPrice)
+                // // Trường hợp cũ
+                // if(lastPrice.length < 1){
+
+                //     lastPrice = dom(classPrice).text().split('₫')
+                //     console.log(lastPrice[0])
+                // }
+            }
+            
+            // Hết đi động việt
+
+             // CellPhone
+            {
+            //      {
+            //     classPrice = '.opt-label'
+            //     let list = dom(classPrice).text().replace(/\s/g,'');
+
+            //     let arr = list.split('₫')
+            //     let lastPrice = ''
+            //     // console.log(arr)
+            //     for(let i=0; i< arr.length; i++){
+            //         if(arr[i].trim() && arr[i].length > 1){
+            //             let color = arr[i].match(/\D/g).join('').replace(/\./g,'')
+            //             let price = arr[i].match(/\d/g).join('')
+
+            //             let str = `${color}: ${price};`
+            //             lastPrice+= str
+            //         }
+
+            //     }
+            //     console.log(lastPrice)
+
+            // }
+            }
+            // Hết Cellphone
+
+
+            // Bạch Long
+            {
+                var listPrice = dom('.options-list.color-list')
+                let onePrice = parseInt(dom('.price').text().split('₫')[0].replace(/\./g, ''))
+
+                // Lấy giá theo thứ tự
+                if(listPrice.text().split('₫').length < 2){
+                    console.log('Giá : '+onePrice)
+                }else {
+                    var html1 = HTML.parse(listPrice.html());
+
+                let onePrice = parseInt(dom('.price').text().split('₫')[0].replace(/\./g, ''))
+                console.log(onePrice)
+                for(let i=0; i< html1.length; i++){
+                    let color = html1[i].children[1].children[0].children[0].content
+                    let priceAdd = parseInt(html1[i].children[0].attrs.price) + parseInt(onePrice)
+
+                    let str = `${color}: ${new Intl.NumberFormat( { style: 'currency', currency: 'EUR' }).format(priceAdd)}`
+                    console.log(str)
+                }
+                }
+                
+             console.log('END')
+            }
+            
+            // Kết thúc phần của bạch long
+
+            // Vĩnh phúc
+            {
+                //  let price = dom('.woocommerce-grouped-product-list-item.product').text();
+                //  let listPrice = price.replace(/\s\s/g,'').split('₫')
+                // let lastPrice = ''
+                //  for(let i=0; i< listPrice.length; i++){
+                //      if(listPrice[i].length > 1 && listPrice[i].trim()){
+                //          let single = ( listPrice[i].replace(/\s/g,'')).toLowerCase();
+
+                //         let gb = single.match(/\d+[g][b]/g).join('')
+                //         let cutPrice = single.split('sốlượng')
+
+                //         // console.log(i+1)
+                //         // console.log(single) //=> chuỗi chứa màu, bộ nhớ, giá
+                //         lastPrice += i + '. '
+                //         if(single.includes('gray' || 'xam' || 'xám')){
+                //             lastPrice += 'gray: '
+                           
+                //         }else if(single.includes('silver' || 'bac' || 'bạc')){
+                //             lastPrice += 'silver: '
+                //         } else if(single.includes('green')){
+                //             lastPrice += 'green'
+                //         } else if(single.includes('gold')){
+                //             lastPrice += 'gold: '
+                //         }
+                       
+                //         lastPrice += cutPrice[cutPrice.length-1] + '\n;'
+                //         // let rexPrice = single.match(/\d../g).join('')
+
+                //         // console.log('\n')
+                       
+                //         // console.log(single)
+                //      }
+                // }
+                // console.log(lastPrice)
+                
+                //  if(!lastPrice.trim() && lastPrice.length < 1){
+                //      console.log('1 Giá');
+                //      let price = dom('.woocommerce-Price-amount.amount')
+                //      lastPrice = price.text().split('₫')[0]
+                //      console.log(lastPrice)
+                //  }
+            }
+
+            // Hết vĩnh phát
+         
+
+            //Phần này cho minh tuấn mobile
+            {
+                // const data = dom('form.variations_form.cart');
+
+                // let dataJson = data.attr('data-product_variations');
+
+                // let jsonData = JSON.parse(dataJson);
+
+                // console.log(jsonData[3].display_price);
+
+                // for(let i=0; i< jsonData.length; i++){
+                //     console.log(jsonData[i].attributes['attribute_pa_mau-sac']);
+                //     console.log(jsonData[i].display_price);
+                // }
+
+            }
+
+
+           
+
+        
+
+        } else {
+            console.log('ERROR');
+        }
+    })
+
+
+// let str = '30.890.000₫41.990.000₫';
+
+// var arr = str.split('₫');
+// console.log(arr);
+
+// let str = 'midnight-green: 35100000,gold: 30900000,gray: 31500000,silver: 32700000,';
+
+// let data = str.split(',')
+
+// console.log(data.join('\n'));

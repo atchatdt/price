@@ -1,0 +1,40 @@
+{
+                let listPrice = dom('.options-list.color-list').text().split('₫');
+                console.log(listPrice)
+
+                let onePrice = parseInt(dom('.price').text().split('₫')[0].replace(/\./g, ''))
+
+                let lastPrice = ''
+                if (listPrice.length < 2) {
+                    lastPrice = onePrice
+                } else {
+                    for (let i = 0; i < listPrice.length; i++) {
+                        let dataPrice = listPrice[i].split('+');
+                        if (dataPrice[0].trim()) {
+                            if (dataPrice.length > 1) {
+                                let price = parseInt(dataPrice[1].replace(/\./g, ''))
+                                let strPrice = dataPrice[0] + ': ' + (new Intl.NumberFormat({
+                                    style: 'decimal',
+                                    currency: 'EUR'
+                                }).format((onePrice + price)))
+                                lastPrice += strPrice +';'
+                                {
+                                    let str2 = 'midnight-green, midnight green, green, xanhlá, xanh lá'
+                                    let str3 = 'gold, vàng, vang, vàng(gold)'
+                                    let color = dataPrice[0]
+                                    
+                                }
+                                console.log(dataPrice[0])
+                            } else {
+                                let strPrice = dataPrice[0] + ': ' + (new Intl.NumberFormat({
+                                    style: 'decimal',
+                                    currency: 'EUR'
+                                }).format((onePrice)))
+                                lastPrice += strPrice + ';ERR'
+                                // console.log(strPrice)
+                            }
+                        }
+                    }
+                }
+            console.log(lastPrice)
+            }
